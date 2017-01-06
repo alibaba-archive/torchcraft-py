@@ -1,5 +1,5 @@
 import argparse
-import numpy
+import numpy as np
 
 import torchcraft_py.proto as proto
 import torchcraft_py.torchcraft as tc
@@ -41,7 +41,7 @@ while total_battles < 40:
 
     while True:
         # Print the progress
-        if numpy.mod(nloop, 50) == 0:
+        if np.mod(nloop, 50) == 0:
             utils.progress(nloop, battles_won, battles_game, total_battles)
 
         update = client.receive()
