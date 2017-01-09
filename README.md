@@ -14,7 +14,8 @@ Python wrapper for [TorchCraft](https://github.com/TorchCraft/TorchCraft), a bri
     ```
 
 ## Usage
-1. Run
+1. Start starcraft with BWAPI by Chaoslauncher.
+2. Run
 
     ```
     cd examples
