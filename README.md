@@ -4,7 +4,7 @@ Python wrapper for [TorchCraft](https://github.com/TorchCraft/TorchCraft), a bri
 
 ## Installation
 
-1. Install [TorchCraft](https://github.com/TorchCraft/TorchCraft) and its dependencies. You can skip the torch client part. 
+1. Install [TorchCraft](https://github.com/TorchCraft/TorchCraft) and its dependencies. You can skip the Torch client part. 
 
 2. Install the package itself:
     ```
@@ -14,7 +14,9 @@ Python wrapper for [TorchCraft](https://github.com/TorchCraft/TorchCraft), a bri
     ```
 
 ## Usage
-1. Run example
+1. Start StarCraft with BWAPI by Chaoslauncher.
+
+2. Run example
 
     ```
     cd examples
