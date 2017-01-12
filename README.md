@@ -4,21 +4,21 @@ Python wrapper for [TorchCraft](https://github.com/TorchCraft/TorchCraft), a bri
 
 ## Installation
 
-1. Install [TorchCraft](https://github.com/TorchCraft/TorchCraft) and its dependencies. You can skip the Torch client part. 
+1. Install [TorchCraft](https://github.com/TorchCraft/TorchCraft) and its dependencies. You can skip the torch client part. 
 
 2. Install the package itself:
     ```
-    git clone http://gitlab.alibaba-inc.com/cogcom/torchcraft-py.git
+    git clone https://github.com/deepcraft/torchcraft-py.git
     cd torchcraft-py
     pip install -e .
     ```
 
 ## Usage
-1. Run
+1. Run example
 
     ```
     cd examples
-    python attack_weakest.py -s $server_ip
+    python attack_weakest.py --ip $server_ip --port $server_port
     ```
     
-    The `$server_ip` is the ip address of the machine running StarCraft.
+    The `$server_ip` and `$server_port` are the ip and port of the server running StarCraft.

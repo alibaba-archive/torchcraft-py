@@ -1,6 +1,6 @@
+*.idea
 *.egg-info
 *.pyc
-.idea
-/logs
 *~
+
 
