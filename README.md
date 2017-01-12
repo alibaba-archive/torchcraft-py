@@ -16,7 +16,7 @@ Python wrapper for [TorchCraft](https://github.com/TorchCraft/TorchCraft), a bri
 ## Usage
 1. Start StarCraft with BWAPI by Chaoslauncher.
 
-2. Run example:
+2. Run examples:
 
     ```
     cd examples
