@@ -1,6 +1,6 @@
 """Protocol definitions for communicating with the TorchCraft server."""
 
-VERSION = '15'
+VERSION = '16'
 
 
 # Build reverted index
