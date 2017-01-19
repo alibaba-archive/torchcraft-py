@@ -10,8 +10,9 @@ mode = {'micro_battles': True, 'replay': False}
 
 
 class Client:
-    def __init__(self, server_ip, server_port='11111'):
-        assert (server_ip != ''), "Server IP cannot be empty"
+    def __init__(self, server_ip, server_port):
+        assert (server_ip != ''), "Server ip cannot be empty"
+        assert (server_port != ''), "Server port cannot be empty"
 
         self.server = "tcp://" + server_ip + ":" + server_port
         self.socket = None
@@ -26,8 +27,8 @@ class Client:
                         'waiting_for_restart': False,
                         'units_myself': {},
                         'units_enemy': {}}
-
-        print "Connecting to the TorchCraft server: " + self.server
+        if DEBUG > 0:
+            print "Connecting to the TorchCraft server: " + self.server
         context = zmq.Context()
         self.socket = context.socket(zmq.REQ)
         self.socket.connect(self.server)
@@ -42,7 +43,8 @@ class Client:
         self.state.parse(msg)
 
         self.message_just_sent = False
-        print "TorchCraft server connected"
+        if DEBUG > 0:
+            print "TorchCraft server connected"
 
         return msg
 
@@ -52,9 +54,8 @@ class Client:
                 print 'Unexpectedly sending ""'
             self.send("")
 
-        if not self.socket.poll(30000):
-            self.close()
-            print "Timeout, TorchCraft server probably crashed"
+        if not self.socket.poll(30000):  # 30 secs
+            raise IOError("Timeout, TorchCraft server probably crashed")
 
         msg = self.socket.recv()
         self.state.parse(msg)

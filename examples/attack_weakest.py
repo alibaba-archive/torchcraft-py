@@ -11,7 +11,8 @@ total_battles = 0
 nrestarts = -1
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-s', '--server', help='server ip')
+parser.add_argument('--ip', help='server ip')
+parser.add_argument('--port', help='server port')
 args = parser.parse_args()
 print args
 
@@ -24,7 +25,7 @@ while total_battles < 40:
     print "GAME STARTED"
 
     # Create a client and connect to the TorchCraft server
-    client = tc.Client(args.server)
+    client = tc.Client(args.ip, args.port)
     init = client.connect()
     if DEBUG > 0:
         print "Received init: " + init
