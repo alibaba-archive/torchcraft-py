@@ -19,7 +19,7 @@ class Order:
 class Unit:
     def __init__(self):
         self.id, self.x, self.y = 0, 0, 0
-        self.health, self.max_health, self.shield, self.max_shield, self.energy = 0, 0, 0, 0, 0
+        self.health, self.max_health, self.shield, self.energy = 0, 0, 0, 0
         self.maxCD, self.groundCD, self.airCD = 0, 0, 0
         self.idle, self.visible = False, False
         self.type, self.armor, self.shieldArmor, self.size = 0, 0, 0, 0
@@ -37,8 +37,6 @@ class Unit:
 
         self.playerId = 0
 
-        self.resources = 0
-
     def read(self, args, c):
         self.id, c = utils.get_int(args, c)
         self.x, c = utils.get_int(args, c)
@@ -46,7 +44,6 @@ class Unit:
         self.health, c = utils.get_int(args, c)
         self.max_health, c = utils.get_int(args, c)
         self.shield, c = utils.get_int(args, c)
-        self.max_shield, c = utils.get_int(args, c)
         self.energy, c = utils.get_int(args, c)
 
         self.maxCD, c = utils.get_int(args, c)
@@ -92,15 +89,12 @@ class Unit:
 
         self.playerId, c = utils.get_int(args, c)
 
-        self.resources, c = utils.get_int(args, c)
-
         return c
 
     def to_arr(self):
         return [self.id, self.x, self.y,
                 self.health, self.max_health,
-                self.shield, self.max_shield,
-                self.energy, self.maxCD,
+                self.shield, self.energy, self.maxCD,
                 self.groundCD, self.airCD, self.idle,
                 self.visible, self.type, self.armor,
                 self.shieldArmor, self.size,
@@ -109,14 +103,12 @@ class Unit:
                 self.groundATK, self.airATK,
                 self.groundDmgType,
                 self.airDmgType, self.groundRange,
-                self.airRange,
-                self.resources]
+                self.airRange]
 
     def __str__(self):
         s = utils.to_str(self.id, " ", self.x, " ", self.y, " ",
                          self.health, " ", self.max_health, " ",
-                         self.shield, " ", self.max_shield, " ",
-                         self.energy, " ", self.maxCD, " ",
+                         self.shield, " ", self.energy, " ", self.maxCD, " ",
                          self.groundCD, " ", self.airCD, " ", self.idle, " ",
                          self.visible, " ", self.type, " ", self.armor, " ",
                          self.shieldArmor, " ", self.size, " ",
@@ -125,8 +117,7 @@ class Unit:
                          self.groundATK, " ", self.airATK, " ",
                          self.groundDmgType, " ",
                          self.airDmgType, " ", self.groundRange, " ",
-                         self.airRange, " ",
-                         self.resources, " ")
+                         self.airRange, " ")
 
         s += utils.to_str(len(self.orders), " ")
         for c in self.orders:

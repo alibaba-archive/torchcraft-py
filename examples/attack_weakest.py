@@ -12,7 +12,7 @@ nrestarts = -1
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ip', help='server ip')
-parser.add_argument('--port', help='server port', default='11111')
+parser.add_argument('--port', help='server port')
 args = parser.parse_args()
 print args
 
