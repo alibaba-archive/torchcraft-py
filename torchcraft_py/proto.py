@@ -672,7 +672,7 @@ def concat_cmd(cmd, *args):
 
 
 def is_building(unit_type_id):
-    return unit_types['Terran_Comsat_Station'] <= unit_type_id \
+    return unit_types['Terran_Command_Center'] <= unit_type_id \
            <= unit_types['Protoss_Shield_Battery']
 
 
@@ -680,3 +680,16 @@ def is_worker(unit_type_id):
     return unit_type_id == unit_types['Protoss_Probe'] \
            or unit_type_id == unit_types['Terran_SCV'] \
            or unit_type_id == unit_types['Zerg_Drone']
+
+
+def is_mineral_field(unit_type_id):
+    return unit_type_id == unit_types['Resource_Mineral_Field'] \
+        or unit_type_id == unit_types['Resource_Mineral_Field_Type_2'] \
+        or unit_type_id == unit_types['Resource_Mineral_Field_Type_3']
+
+
+def is_gas_geyser(unit_type_id):
+    return unit_type_id == unit_types['Resource_Vespene_Geyser'] \
+        or unit_type_id == unit_types['Protoss_Assimilator'] \
+        or unit_type_id == unit_types['Terran_Refinery'] \
+        or unit_type_id == unit_types['Zerg_Extractor']
