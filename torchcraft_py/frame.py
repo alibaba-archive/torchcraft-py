@@ -79,7 +79,7 @@ class Unit:
             return
 
         self.orders = []
-        for i in range(0, n_orders):
+        for i in xrange(0, n_orders):
             self.orders.append(Order())
             self.orders[i].first_frame, c = utils.get_int(args, c)
             self.orders[i].type, c = utils.get_int(args, c)
@@ -125,8 +125,7 @@ class Unit:
                          self.groundATK, " ", self.airATK, " ",
                          self.groundDmgType, " ",
                          self.airDmgType, " ", self.groundRange, " ",
-                         self.airRange, " ",
-                         self.resources, " ")
+                         self.airRange, " ")
 
         s += utils.to_str(len(self.orders), " ")
         for c in self.orders:
@@ -136,6 +135,7 @@ class Unit:
 
         s += utils.to_str(self.velocityX, " ", self.velocityY)
         s += utils.to_str(" ", self.playerId)
+        s += utils.to_str(" ", self.resources)
         return s
 
     def write(self):
