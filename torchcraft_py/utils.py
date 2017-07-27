@@ -1,3 +1,5 @@
+import re
+
 def print_err(msg):
     raise RuntimeError(msg)
 
@@ -50,7 +52,7 @@ def parse_table(s):
         return result
 
     s = s[1:-1]
-    kvs = s.split(',')
+    kvs = re.split(r',(?=[a-zA-Z])',s)
     for kv in kvs:
         if len(kv) == 0:
             continue
